@@ -1,0 +1,447 @@
+/*顶部导航栏部分Start↓*/
+.topNav {
+    width: 100%;
+    height: 60px;
+    background-color: #EC82B7;
+    margin-bottom:60px;
+    position: fixed;
+    z-index: 9999;
+}
+.w {
+    /*版心*/
+    width: 1190px;
+    margin: 0 auto;
+}
+.topNav-logo {
+    width: 207px;
+    height: 60px;
+    float: left;
+    margin: 9px 30px 0 0;
+    background: url(../images/price-img/syq-logox.png) 0 0 no-repeat;
+    cursor: pointer;
+}
+.topNav-logo:hover {
+    background-position: -216px 0;
+}
+.topNav ul {
+    float: right;
+}
+.topNav ul li {
+    float: left;
+    position: relative;
+}
+.topNav a {
+    display: inline-block;
+    width: 116px;
+    height: 60px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+}
+.topNav a:hover {
+    background-color: #CC6699;
+}
+.topNav b {
+    position: relative;
+    font-weight: normal;
+    font: 12px Microsoft Yahei,Verdana,宋体,sans-serif;
+    font-size: 16px;
+    display: block;
+    margin: 11px 0 5px;
+}
+.topNav span {
+    position: relative;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    display: block;
+    font-style: italic;
+    font-size: 12px;
+}
+.topNav-logo:hover {
+    background-position: -216px 0;
+}
+.topNavHome {
+    background-color: #CC6699;
+}
+.topNavOnespan{
+    color: #ff0;
+}
+/*顶部导航栏部分End*/
+
+/*中间主体部分Start↓*/
+.wxl_wp{
+    height: 1550px;
+    /*width: 1180px;*/
+    /*margin: 0  auto ;*/
+    position: relative;
+    /*background-color: #ff0;*/
+    padding-top: 120px;
+
+}
+.priceBody{
+
+    height: 1550px;
+    width: 1180px;
+    margin: 0 auto;
+    position: relative;
+}
+    /*左边侧边栏Start↓*/
+.priceBodyLeft{
+    width: 210px;
+    height: 806px;
+    float: left;
+    background:url(../images/price-img/ico_8.jpg) no-repeat right 0;
+    position: absolute;
+}
+.wxl_md02{
+    width: 210px;
+    height: 238px;
+    text-align:right;
+    background:url(../images/price-img/ico_7.gif) no-repeat 8px 34px;
+}
+.wxl_md02 .hd{
+    height:50px;
+    line-height:50px;
+    padding:10px 15px 0 0;
+    text-align: center;
+    position:relative
+}
+.wxl_md02 .hd p{
+    width: 11px;
+    height: 316px;
+    background: url(../images/price-img/i6.gif) no-repeat;
+    position: absolute;
+    top: 0;
+    left: -11px;
+}
+
+.wxl_md02 .hd h3{
+    color:#ccc;
+    font-size: 30px ;
+    font-family: Copperplate Gothic Light,"Times New Roman", Times, serif;
+}
+.wxl_md02 .hd h3 a{
+    color:#ec82b7;
+    position: absolute;
+    right: 45px;
+}
+.wxl_md02 .hd h3 a:hover{
+    color:#f60;
+}
+.wxl_md02 .bd{
+    padding-bottom:23px
+}
+.wxl_nav{
+    overflow:hidden;
+    padding: 16px 14px 0;
+}
+.wxl_nav li{
+    clear: both;
+    font: 400 12px/12px "微软雅黑";
+}
+.wxl_nav li a{
+    color:#333;
+    display:block;
+    height:28px;
+    line-height:28px;
+    padding-right:18px;
+    overflow:hidden;
+    margin-bottom:2px
+}
+.wxl_nav .hover,.wxl_nav li:hover{
+    color:#fff;
+    background: url(../images/price-img/ico16.gif) no-repeat;
+}
+/*侧边栏内下部*/
+.wxl_bd01{
+    padding-top: 45px;
+    width: 210px;
+    height: 527px;
+    zoom: 1;
+    background:url(../images/price-img/ico_7.gif) no-repeat 8px -5px;
+}
+.wxl_searchBox{
+    background:url(../images/price-img/search.gif) no-repeat 0 center;
+    width:165px;
+    height:22px;
+    display:block;
+    margin:0 0 15px 24px;
+}
+
+.wxl_searchBox_input{
+    border:0;
+    width:110px;
+    color:#666;
+    padding:2px 0 2px 3px;
+    line-height:18px;
+    background:none;
+}
+.wxl_searchBox_btn{
+    border: 0;
+    cursor: pointer;
+    width: 44px;
+    height: 17px;
+    background:none;
+}
+.wxl_md03{
+    text-align: right;
+    height: 445px;
+    font: 12px "微软雅黑";
+    padding-right: 20px;
+    overflow:hidden;
+}
+.wxl_md03 p,.wxl_md03 i{
+    line-height:22px
+}
+.wxl_md03 i{
+    font-weight: 600;
+    font-style: normal;
+}
+.wxl_call{
+    padding-bottom:20px;
+    color:#000;
+    line-height:22px;
+}
+.wxl_md03 .wxl_call span{
+    font-size:18px;
+    font-weight: 600;
+    position:relative;
+    top: 2px;
+}
+.wxl_qe{
+    padding:5px 0 20px;
+    float: right;
+}
+.wxl_qe li{
+    width:32px;
+    float:left;
+    line-height: 32px;
+    display:inline;
+    text-align:center;
+    margin-left:10px
+}
+.wxl_qe a{
+    display:block;
+}
+.wxl_qe i{
+    padding-top:33px;
+    display:block;
+}
+
+.wxl_qe .z i{
+    background:url(../images/price-img/m.gif) no-repeat 0 0;
+}
+.wxl_qe .y i{
+    background:url(../images/price-img/m.gif) no-repeat -32px 0;
+}
+.haha{
+    clear: both;
+}
+
+/*主体部分End*/
+
+/*---------main-start---------*/
+.wxl_main{
+    width: 940px;
+    height: 1550px;
+    float: right;
+    margin-top:32px;
+}
+/*main头部*/
+.wxl_w_right{
+    width:940px;
+    float:right;
+    padding-top:26px;
+}
+.right_hd{
+    height: 27px;
+    font-size: 12px;
+    border-bottom: 1px solid #ccc;
+}
+.right_hd h2{
+    color:#EC82B7;
+    line-height:27px;
+    float:left;
+    border-bottom:1px solid #EC82B7;
+}
+.right_hd  span {
+    float:right;
+    padding:0 10px 0 13px;
+    background:url(../images/price-img/ico_10.gif) no-repeat  0 center;
+}
+.right_hd span a{
+    font-size: 12px;
+    line-height: 27px;
+    text-align: center;
+    color:#666;
+}
+.right_hd span strong{
+    font-size: 12px;
+    line-height: 27px;
+    text-align: center;
+    color:#666;
+    font-weight: normal
+}
+.right_hd a:hover{
+    text-decoration: blink;
+    color:#EC82B7;
+}
+.right_bd_ul{
+    padding:24px 0 0 10px;
+    margin-right:10px;
+}
+.right_bd_li{
+    border-bottom: 1px dotted #cecece;
+    padding: 10px 0 15px;
+    clear: both;
+    overflow: hidden;
+    position: relative;
+}
+.r_b_span{
+    float:right;
+    font-style: italic;
+    color:#EC82B7;
+    margin:0 20px 0 0;
+    line-height:30px;
+}
+.r_b_span b{
+    font-size: 30px;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-weight: normal;
+    margin-right: 3px;
+}
+.right_bd_li img{
+    height:150px;
+    width:200px;
+    float:left;
+    margin:5px 10px 0 0;
+}
+.right_bd_li a h3{
+    height:30px;
+    line-height:30px;
+    font-weight: normal;
+    color:#EC82B7;
+}
+.right_bd_li a h3:hover{
+    color:#FF9900;
+}
+.right_bd_li p{
+    color: #444;
+    font: 12px Microsoft Yahei,Verdana,宋体,sans-serif;
+    margin:5px 150px 0 0;
+    line-height:20px;
+}
+.right_bd_li p a{
+    top: 55px;
+    float:right;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    background: url(../images/price-img/more2.gif) no-repeat 0 0;
+    color: #fff;
+    display: block;
+    width: 42px;
+    padding-left: 5px;
+    height: 13px;
+    line-height: 15px;
+    overflow: hidden;
+}
+.page{
+    color: #444;
+    font: 12px Microsoft Yahei,Verdana,宋体,sans-serif;
+    height:16px;
+    line-height:16px;
+    margin:12px 12px 30px;
+}
+.page strong{
+    background-color:#EC82B7;
+    font-weight: 700;
+    color:#fff;
+    padding:0 8px;
+}
+.page span{
+    padding:0 5px;
+}
+/*---------main-end---------*/
+
+/*中间底部宣传start*/
+/*.wxl_w_bottom{*/
+    /*background: url(../images/price-img/lf06.png) no-repeat;*/
+/*}*/
+/*.foot{*/
+    /*height: 500px;*/
+    /*background-color:palevioletred;*/
+/*}*/
+.lq-down {
+    padding-top: 100px;
+    width: 1180px;
+    margin: 0 auto;
+    height: 130px;
+    position: relative;
+}
+.lq-down-img {
+    position: absolute;
+    top: 20px;
+    left: 388px;
+    width: 402px;
+    height: 126px;
+    background: url("../images/price-img/lf06.png") no-repeat center 0;
+}
+.lq-down i {
+    position: absolute;
+    top: 150px;
+    font-style: normal;
+    font-family: "MS Serif", "New York",serif;
+    line-height: 1.8em;
+    color: #bbb;
+    text-transform: uppercase;
+    font-size: 11px;
+    -webkit-transform: scale(0.9);
+    display: block;
+    text-align: center;
+}
+
+/*中间底部宣传End*/
+
+
+/*右边定位客服*/
+.service {
+    height: 135px;
+    width: 45px;
+    background-color: #fff;
+    float: right;
+    position:fixed;
+    bottom:100px;
+    right: 10px;
+}
+
+.retop{
+     display: block;
+     width: 45px;
+     height: 45px;
+     /*background-color: #fff;*/
+     background: url(../images/price-img/tree.png) no-repeat 1px 0px;
+ }
+.tel a {
+    display: block;
+    width: 45px;
+    height: 45px;
+    /*background-color: #fff;*/
+    background: url(../images/price-img/tree.png) no-repeat 1px -45px;
+}
+.QRCode{
+    display: block;
+    width: 45px;
+    height: 45px;
+    background: url(../images/price-img/tree.png) no-repeat 1px -90px;
+    /*position: fixed;*/
+}
+.bohaoBox {
+    width: 180px;
+    height: 205px;
+    float: left;
+    position: absolute;
+    background: url("../images/price-img/ewmImg.jpg");
+    margin-left: -180px;
+    margin-top: -160px;
+}
+/*右边定位客服*/

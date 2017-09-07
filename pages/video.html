@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../css/vedio.css"/>
+    <link rel="stylesheet" href="../css/common/video-js.css"/>
+    <link rel="stylesheet" href="../css/main.css"/>
+    <script src="../js/common/video.min.js"></script>
+    <script src="../js/common/videojs-ie8.min.js"></script>
+    <script src="../js/common/jquery-1.12.2.js"></script>
+    <script src="../js/vedio.js"></script>
+    <script>
+        $(function(){
+            navRun();
+            function navRun(){
+                /**固定定位**/
+                    //思路：当鼠标滚出一定距离(导航栏上部分的高度)，固定导航栏
+                $(window).on("scroll",function(){
+                    if($(window).scrollTop() > $(".header-slider").height()){
+                        //固定导航栏
+                        $(".header-nav").css({position:"fixed","left":0,"top":0,"zIndex":999});
+                        $(".activity").css("marginTop",$(".header-nav").height()); //解决
+                    }else{
+                        $(".header-nav").css({position:"static","left":0,"top":0});
+                        $(".activity").css("marginTop",0);
+                    }
+                });
+                $(".header-nav-list>ul>li>a").on("mouseenter",function(){
+                    //鼠标移入，当前li变化样式
+                    $(this).children("span").eq(0).stop().animate({top:"18px"},150);
+                    $(this).children("i").eq(0).addClass("current").stop().animate({top:"-25px"},200);
+
+                });
+                $(".header-nav-list>ul>li").on("mouseleave",function(){
+                    //鼠标离开，去除样式
+                    $(".header-nav-list>ul>li>a>span").stop().animate({top:0},150);
+                    $(".header-nav-list>ul>li>a>i").removeClass("current").stop().animate({top:0},200);
+
+                });
+            }
+        });
+    </script>
+    <style>
+        .header-nav{
+            width: 100%;
+            height: 60px;
+            background-color: #EC82B7;
+
+        }
+        .header-nav .header-nav-w{
+            width: 1180px;
+            margin: 0 auto;
+        }
+        /*登录部分---logo*/
+        .header-nav .header-login{
+            width: 207px;
+            height: 60px;
+            background: url("../images/main-img/syq-logo.png")0 0 no-repeat;
+            text-indent: -9999px;
+            overflow: hidden;
+            float: left;
+            margin: 9px 30px 0 0;
+        }
+        .header-nav .header-login:hover{
+            background-position: -215px 0;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var timer=null;
+            var now=0;
+            var max=0;
+            var arry=[];   //动态添加视频地址，正常由后台传输。
+            var cacheArry2=[]; //视频缓存数组
+//          arry[0]="http://v.youku.com/v_show/id_XMjcyMjg0MTY5Ng==.html?spm=a2hww.20023042.m_223465.5~5~5~5~5!2~5~5~A&from=y1.3-idx-beta-1519-23042.223465.2-1";
+//            arry[1]="http://vku.youku.com/live/play?id=11942&spm=a2hww.20023042.m_223465.5~5~5~5!3~5~5~A";
+//            arry[2]="http://v.youku.com/v_show/id_XMjcyMzMzMDkyNA==.html?f=49598109&spm=a2hww.20023042.m_223495.5~5!3~5~5~A&from=y1.3-idx-beta-1519-23042.223493-223495.4-1";
+//            arry[3]="http://v.youku.com/v_show/id_XMjcyMjg0MTY5Ng==.html?spm=a2hww.20023042.m_223465.5~5~5~5~5!2~5~5~A&from=y1.3-idx-beta-1519-23042.223465.2-1";
+//            arry[4]="http://vku.youku.com/live/play?id=11942&spm=a2hww.20023042.m_223465.5~5~5~5!3~5~5~A";
+//            arry[5]="http://v.youku.com/v_show/id_XMjcyMzMzMDkyNA==.html?f=49598109&spm=a2hww.20023042.m_223495.5~5!3~5~5~A&from=y1.3-idx-beta-1519-23042.223493-223495.4-1";
+
+            arry[0]="../mv/周杰伦 - 告白气球.mp4";
+            arry[1]="../mv/剑豪.mov";
+            arry[2]="../mv/lol龙王.mov";
+            arry[3]="../mv/地球自转.mov";
+            arry[4]="../mv/陨石.mov";
+            arry[5]="../mv/鬼泣但丁.mov";
+
+            var impArray=[];  //动态添加li图片，正常由后台传输。
+            var cacheImpArray2=[];//图片缓存数组
+            impArray[0]="../images/vedio-img/lq1_img.png";
+            impArray[1]="../images/vedio-img/lq2_img.png";
+            impArray[2]="../images/vedio-img/lq3_img.png";
+            impArray[3]="../images/vedio-img/lq4_img.png";
+            impArray[4]="../images/vedio-img/lq5_img.png";
+            impArray[5]="../images/vedio-img/lq6_img.png";
+
+            //初始化缓存区数组。
+            for(var f=0;f<arry.length;f++){
+                cacheArry2[f]=arry[f];
+            }
+            for(var g=0;g<impArray.length;g++){
+                cacheImpArray2[g]=impArray[g];
+            }
+
+            var vedio=document.getElementById("vedio"); //获取视频外围盒子。
+            var myvideo=document.getElementById("my-video"); //获取视频盒子。
+            var top_title=document.getElementById("top_title");
+            var videoWidth=document.body.offsetWidth; //获取不同尺寸的显示频宽度。
+            var videoHeight=450;
+
+
+//            文字部分特效
+            var hovers=document.getElementsByClassName("hover");
+            for(var i=0;i<hovers.length;i++){
+                hovers[i].onmouseover=function(e){
+                    e.stopPropagation();  //阻止事件冒泡。hover和li属于父子关系??。
+                    var p=this.getElementsByTagName("p");
+                    for(var j=0;j< p.length;j++){
+                        p[j].style.color="pink";
+                    }
+                }
+                hovers[i].onmouseout=function(e){
+                    e.stopPropagation();
+                    var p=this.getElementsByTagName("p");
+                    for(var j=0;j< p.length;j++){
+                        p[j].style.color="#666";
+                    }
+                }
+            }
+
+            top_title.onmouseover=function(){
+                animate_v6(this,{borderLeftWidth:36,borderRightWidth:36});
+        }
+
+
+        top_title.onmouseout=function(){
+            animate_v6(this,{borderLeftWidth:5,borderRightWidth:5});
+        }
+
+//            各视频部分的遮罩
+//            var items=document.getElementsByTagName("i"); //冲突
+            var items=document.getElementsByClassName("center_list")[0].getElementsByTagName("i");
+//            var lis=document.getElementsByTagName("li");
+            var lis=document.getElementsByClassName("center_list")[0].getElementsByTagName("li");
+            var masks=document.getElementsByClassName("mask");
+            for(var l=0;l<lis.length;l++){
+                lis[l].onmouseover=liOverEvent(masks[l],items[l]);
+                lis[l].onmouseout=liOutEvent(masks[l],items[l]);
+            }
+
+            function liOverEvent(masks,item){
+                return function(){
+                    animate_v6(masks,{opacity:0.5});
+                    animate_v6(item,{left:200})
+                }
+            }
+            function liOutEvent(masks,item){
+                return function(){
+                    animate_v6(masks,{opacity:0});
+                    animate_v6(item,{left:-188});
+                }
+            }
+
+//            关闭按钮
+            document.getElementById("close").onclick=function(){
+                document.getElementById("vedio").style.display="none";
+                max=0;
+                VedioPause();
+            }
+
+//视频停播
+            function VedioPause(){
+                var myPlayer = videojs('my-video');
+                videojs("my-video").ready(function(){
+                    var myPlayer = this;
+                    myPlayer.pause();
+
+                });
+//                document.getElementById("my-video").pause();
+            }
+
+//            最小化按钮
+            document.getElementById("min").onclick=function(){
+                videoInit();
+                animate_v6(vedio,{width:268,height:268,right:0,bottom:0});
+                animate_v6(myvideo,{width:268,height:268,right:0,bottom:0});
+            }
+
+//注册播放
+            for(var k=0;k<items.length;k++){
+//  方法1
+//                items[k].index=k;
+//                items[k].onclick=function(){
+//                    document.getElementById("vedio").style.display="block";
+//                    var that=this;
+//                    VedioGo(that);
+//                };
+//  方法2
+                items[k].onclick=(function(k){
+//                    document.getElementById("vedio").style.display="block";
+                    function changeSource(){
+                        document.getElementById("vedio").style.display="block"; //
+                        var vedioSrc=document.getElementsByTagName("source");
+                        now=k;
+                        for(var a=0;a<vedioSrc.length;a++){
+                            vedioSrc[a].setAttribute("src",cacheArry2[k]);
+                        }
+                        VedioGo();
+                    }
+                    return changeSource;
+                })(k);
+
+            }
+//最大化
+            document.getElementById("max").onclick=function(){
+                var nowVideoWidth=vedio.offsetHeight;
+                max++;
+                if(nowVideoWidth==268){
+                    videoInit();
+                    VedioGo(videoWidth,videoHeight);
+                }
+            }
+
+            function VedioGo(that){
+//方法一
+//                var myPlayer = videojs('my-video');
+//                var index = that.index;
+//                var vedioSrc=document.getElementsByTagName("source");
+//                for(var a=0;a<vedioSrc.length;a++){
+//                    vedioSrc[a].setAttribute("src",arry[index]);
+//                }
+//方法二
+                timer=setInterval(autoMin,100);
+                videojs("my-video").ready(function(){
+                    var myPlayer = this;
+                    myPlayer.load().play();
+                    var vedio=document.getElementById("vedio");
+                    var myvideo=document.getElementById("my-video");
+                    vedio.style.position="fixed";
+                    myvideo.style.position="fixed";
+                    animate_v6(vedio,{width:videoWidth,height:videoHeight,left:0,top:60});
+                    animate_v6(myvideo,{width:videoWidth,height:videoHeight,left:0,top:60});
+                });}
+
+//视频重新初始化
+            function videoInit(){
+                vedio.style.position="fixed";
+                myvideo.style.position="fixed";
+                vedio.style.top="";
+                myvideo.style.top="";
+                vedio.style.left="";
+                myvideo.style.left="";
+                vedio.style.bottom="";
+                myvideo.style.bottom="";
+                vedio.style.right="";
+                myvideo.style.right="";
+            }
+
+//兼容
+            function getScroll(){
+                return {
+                    left:document.body.scrollLeft || window.pageXOffset || document.documentElement.scrollLeft || 0,
+                    top: document.body.scrollTop || window.pageYOffset || document.documentElement.scrollTop || 0
+                };
+            }
+
+//获取滚动距离，判断不同的视频是否该缩放。
+            function autoMin(){
+                var top = getScroll().top;
+                if(((now==0||now==1)&&top>800)){
+                    videoInit();
+                    animate_v6(vedio,{width:268,height:268,right:0,bottom:0});
+                    animate_v6(myvideo,{width:268,height:268,right:0,bottom:0});
+                    clearInterval(timer);
+//                    flag=false;
+//                    return;
+                }else if((now==2||now==3)&&top>1300){
+                    videoInit();
+                    animate_v6(vedio,{width:268,height:268,right:0,bottom:0});
+                    animate_v6(myvideo,{width:268,height:268,right:0,bottom:0});
+                    clearInterval(timer);
+//                    flag=false;
+//                    return;
+                }else if((now==4||now==5)&&top>1900){
+                    videoInit();
+                    animate_v6(vedio,{width:268,height:268,right:0,bottom:0});
+                    animate_v6(myvideo,{width:268,height:268,right:0,bottom:0});
+                    clearInterval(timer);
+//                    flag=false;
+//                    return;
+                }
+            }
+
+//不能用，无法实现
+            //            window.onscroll = function(){
+//                var flag=true;
+//                var top = getScroll().top;
+//                if(flag){
+//                    if((now==0||now==1)&&top>300){
+//                        videoInit();
+//                        animate_v6(vedio,{width:268,height:268,right:0,bottom:0});
+//                        animate_v6(myvideo,{width:268,height:268,right:0,bottom:0});
+//                        flag=false;
+//                        return;
+//                    }else if((now==2||now==3)&&top>600){
+//                        videoInit();
+//                        animate_v6(vedio,{width:268,height:268,right:0,bottom:0});
+//                        animate_v6(myvideo,{width:268,height:268,right:0,bottom:0});
+//                        flag=false;
+//                        return;
+//                    }else if((now==4||now==5)&&top>900){
+//                        videoInit();
+//                        animate_v6(vedio,{width:268,height:268,right:0,bottom:0});
+//                        animate_v6(myvideo,{width:268,height:268,right:0,bottom:0});
+//                        flag=false;
+//                        return;
+//                    }
+//                }
+
+//            }
+
+//底部注册
+            var footDiv=document.getElementsByClassName("foot-1");
+            for(var b=0;b<footDiv.length;b++){
+                var footLi=footDiv[b].getElementsByTagName("li");
+                for(var c=0;c<footLi.length;c++){
+                    footLi[c].onmouseover=function(){
+                        this.style.backgroundColor="hotpink";
+                    }
+                    footLi[c].onmouseout=function(){
+                        this.style.backgroundColor="";
+                    }
+                }
+
+            }
+
+
+//头部注册
+            var headLis=document.getElementsByClassName("header-nav-list")[0].getElementsByTagName("li");
+            for(var e=0;e<headLis.length;e++){
+                headLis[e].onmouseover=function(){
+                    this.style.backgroundColor="#666";
+                }
+                headLis[e].onmouseover=function(){
+                    this.style.backgroundColor="";
+                }
+            }
+
+            var  defalut=document.getElementById("default");
+            var  comprehensive=document.getElementById("comprehensive");
+            var newest=document.getElementById("newest");
+            defalut.onmouseover=function(){
+                this.style.color="red";
+            }
+            defalut.onmouseout=function(){
+                this.style.color="";
+            }
+
+            newest.onmouseover=function(){
+                this.style.color="red";
+            }
+            newest.onmouseout=function(){
+                this.style.color="";
+            }
+
+            comprehensive.onmouseover=function(){
+                this.style.color="red";
+            }
+            comprehensive.onmouseout=function(){
+                this.style.color="";
+            }
+
+
+
+            defalut.onclick=function(){
+                //改变数组顺序，改变图片顺序。默认
+                var imgs=document.getElementsByTagName("img");
+                for(var f=0;f<arry.length;f++){
+                    cacheArry2[f]=arry[f];
+                }
+                for(var g=0;g<impArray.length;g++){
+                    cacheImpArray2[g]=impArray[g];
+                }
+                for(var i=0;i<arry.length;i++){
+                    imgs[i].setAttribute("src",cacheImpArray2[i]);
+                }
+
+
+            }
+
+            comprehensive.onclick=function(){
+                //改变数组顺序，改变图片顺序。综合
+
+            }
+
+            newest.onclick=function(){
+                //改变数组顺序，改变图片顺序。
+                cacheArry2.reverse();
+                cacheImpArray2.reverse();
+                var imgs=document.getElementsByTagName("img");
+                for(var i=0;i<arry.length;i++){
+                    imgs[i].setAttribute("src",cacheImpArray2[i]);
+                }
+            }
+
+
+
+        }
+
+    </script>
+</head>
+<body>
+<!--头部-->
+<div class="header">
+    <!--顶部菜单-->
+    <div class="header-nav">
+        <div class="header-nav-w">
+            <!--login-->
+            <h1 class="header-login"><a href="#">weddingplan</a></h1>
+            <!--菜单列表-->
+            <div class="header-nav-list">
+                <ul>
+                    <li><a href="../index.html" ><span>网站首页</span><i class="current">HOME</i></a></li>
+                    <li><a href="works.html"><span>定制案例</span><i>WORKS</i></a></li>
+                    <li><a href="newvideo.html" class="current"><span>婚礼视频</span><i>VIDEO</i></a></li>
+                    <li><a href="new.html"><span>最新活动</span><i>NEWS</i></a></li>
+                    <li><a href="price.html"><span>服务报价</span><i>PRICE</i></a></li>
+                    <li><a href="team.html"><span>策划团队</span><i>TEAM</i></a></li>
+                    <li><a href="aboutContact.html"><span>关于我们</span><i>ABOUT</i></a></li>
+                    <li><a href="aboutContact.html"><span>联系我们</span><i>CONTACT</i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="w">
+    <div class="title">
+        <h2>“让您的婚礼如花般绽放”</h2>
+        <p>真正的美丽，不是青春的容颜，而是绽放的心灵；不是物质的附庸，而是知识的光芒……真正的美丽，多是夹带着生活的余香，浸润着岁月的辙痕，承载着我们的希翼！</p>
+        <p class="en">COMPLEX, FASHION, NATURAL, ELEGANT. A LIFELONG TASK WE IS FOUND AND IT BECOME REALITY APPLICATION AND YOUR WEDDING, IT IS THE NEW COUPLE ACCURATELY CAPTURE</p>
+        <p class="en">SUCH QUALITY AND UNIQUE STYLE, AND FRESH INTENTION TO SHOW LOVE AND FAITH IN RESPECT OF LIFE. EACH LENS IS PRIVATE CUSTOMIZED A FASHION</p>
+        <p class="en">EVERY CUSTOM IS OUR LIFELONG MISSION AND A COMPLETE</p>
+        <div class="top" id="top">
+            <div class="top_title" id="top_title">
+                <a class="vedio" href="">婚礼视频</a>
+                <a class="flim" href="">微电影</a>
+            </div>
+        </div>
+    </div>
+    <div id="sort">
+        <span>排序</span>
+        <!--阻止跳转-->
+        <a href="javascript:void(0)"><span id="default">默认</span></a>
+        <a href="javascript:void(0)"><span id="comprehensive">综合</span></a>
+        <a href="javascript:void(0)"><span id="newest">最新</span></a>
+    </div>
+    <div class="center_list">
+        <ul>
+            <li class="fl" id="list1">
+                <div class="center_list_top">
+                    <div class="mask"></div>
+                    <i id="play1"></i>
+                    <div><img src="../images/vedio-img/lq1_img.png" alt=""/></div>
+                </div>
+
+                <div class="hover">
+                    <div class="center_list_center" id="center_list_center1">
+                        <div id="center_list_center1_box1">
+                            <p class="fl">【关于你的默契】</p>
+                            <p class="fr">May 26,2015</p>
+                        </div>
+                        <div>
+                            <p id="fansile">XIMANTANG WEDDING PLAN</p>
+                        </div>
+                    </div>
+                    <div class="center_list_bottom">
+                        <p class="fr">HITS:592 GET MORE +</p>
+                    </div>
+                </div>
+
+
+            </li>
+
+            <li class="fr" id="list2">
+                <div class="center_list_top">
+                    <div class="mask"></div>
+                    <i id="play2"></i>
+                    <div><img src="../images/vedio-img/lq2_img.png" alt=""/></div>
+                </div>
+
+                <div class="hover">
+                    <div class="center_list_center" id="center_list_center2">
+                        <div id="center_list_center1_box2">
+                            <p class="fl">【关于你的默契】</p>
+                            <p class="fr">May 26,2015</p>
+                        </div>
+                        <div>
+                            <p id="zhendefansile">XIMANTANG WEDDING PLAN</p>
+                        </div>
+                    </div>
+                    <div class="center_list_bottom">
+                        <p class="fr">HITS:562 GET MORE +</p>
+                    </div>
+                </div>
+
+            </li>
+        </ul>
+        <ul>
+            <li class="fl" id="list3">
+                <div class="center_list_top">
+                    <div class="mask"></div>
+                    <i id="play3"></i>
+                    <div><img src="../images/vedio-img/lq3_img.png" alt=""/></div>
+                </div>
+
+                <div class="hover">
+                    <div class="center_list_center" id="center_list_center3">
+                        <div id="center_list_center1_box3">
+                            <p class="fl">【关于你的默契】</p>
+                            <p class="fr">May 26,2015</p>
+                        </div>
+                        <div>
+                            <p id="exin">XIMANTANG WEDDING PLAN</p>
+                        </div>
+                    </div>
+                    <div class="center_list_bottom">
+                        <p class="fr">HITS:592 GET MORE +</p>
+                    </div>
+                </div>
+            </li>
+
+            <li class="fr" id="list4">
+                <div class="center_list_top">
+                    <div class="mask"></div>
+                    <i id="play4"></i>
+                    <div><img src="../images/vedio-img/lq4_img.png" alt=""/></div>
+                </div>
+
+                <div class="hover">
+                    <div class="center_list_center" id="center_list_center4">
+                        <div id="center_list_center1_box4">
+                            <p class="fl">【关于你的默契】</p>
+                            <p class="fr">May 26,2015</p>
+                        </div>
+                        <div>
+                            <p id="zhenfan">XIMANTANG WEDDING PLAN</p>
+                        </div>
+                    </div>
+                    <div class="center_list_bottom">
+                        <p class="fr">HITS:562 GET MORE +</p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <ul>
+            <li class="fl" id="list5">
+                <div class="center_list_top">
+                    <div class="mask"></div>
+                    <i id="play5"></i>
+                    <div><img src="../images/vedio-img/lq5_img.png" alt=""/></div>
+                </div>
+
+                <div class="hover">
+                    <div class="center_list_center" id="center_list_center5">
+                        <div id="center_list_center1_box5">
+                            <p class="fl">【关于你的默契】</p>
+                            <p class="fr">May 26,2015</p>
+                        </div>
+                        <div>
+                            <p id="haofan">XIMANTANG WEDDING PLAN</p>
+                        </div>
+                    </div>
+                    <div class="center_list_bottom">
+                        <p class="fr">HITS:592 GET MORE +</p>
+                    </div>
+                </div>
+            </li>
+
+            <li class="fr" id="list6">
+                <div class="center_list_top">
+                    <div class="mask"></div>
+                    <i id="play6"></i>
+                    <div><img src="../images/vedio-img/lq6_img.png" alt=""/></div>
+                </div>
+                <div class="hover">
+                    <div class="center_list_center" id="center_list_center6">
+                        <div id="center_list_center1_box6">
+                            <p class="fl">【关于你的默契】</p>
+                            <p class="fr">May 26,2015</p>
+                        </div>
+                        <div>
+                            <p id="tule">XIMANTANG WEDDING PLAN</p>
+                        </div>
+                    </div>
+                    <div class="center_list_bottom">
+                        <p class="fr">HITS:562 GET MORE +</p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="bottom">
+        <div class="img">
+        </div>
+        <div>
+            <p>DELICATE AND BRIGHT RED LIPSTICK, PURE WHITE WEDDING DRE SS, NO ONE CAN COMPARE TO ME NOW MORE HAPPINESS. </p>
+            <p>THE MEMORY OF THE BOTTOM OF THE POOL, THE MERMAID I N BLOWING THE BEAUTIFUL SPIRAL ANGLE; BEATING THE NOTE, TO WEA R TO THE SURFACE OF THE WATER, SPARKLING, HAS GONE;</p>
+            <p>ONLY THROUGH TO THE BLUE YING WAVE. SEE, THE YOUTH - BEAUTIFUL.</p>
+        </div>
+    </div>
+
+
+    <div class="footBoxBorder"></div>
+    <div class="footBox">
+        <div class="foot-1 footAbout">
+
+            <ul>
+                <li><span>关于</span></li>
+                <li><a href="#">XMT 品牌介绍</a></li>
+                <li><a href="#">CONTACT 联系我们</a><</li>
+                <li><a href="#">PAYMENT 银行转账</a></li>
+                <li><a href="#">JOIN 人才招聘</a></li>
+                <li><a href="#">LAW 法律公告</a></li>
+            </ul>
+        </div>
+        <div class="foot-1 footWork">
+
+            <ul>
+                <li><span>作品</span><div></div></li>
+                <li><a href="#">CUSTOM 定制婚礼</a><</li>
+                <li><a href="#">PROWINVE 省内婚礼</a></li>
+                <li><a href="#">OUTDOOR 户外婚礼</a></li>
+                <li><a href="#">GROUP 集体婚礼</a></li>
+                <li><a href="#">MOVEIS 婚礼视频</a></li>
+                <li><a href="#">FLIM 微电影</a></li>
+            </ul>
+        </div>
+        <div class="foot-1 footServe">
+
+            <ul>
+                <li><span>服务</span></li>
+                <li><a href="#">WEDDING 婚礼策划套系</a></li>
+                <li><a href="#">VIDEO 婚礼策划套系</a></li>
+                <li><a href="#">SERVICE 服务流程</a></li>
+                <li><a href="#">ORDER 在线预约</a></li>
+
+            </ul>
+        </div>
+        <div class="foot-1 footNews">
+
+            <ul>
+                <li><span>资讯</span></li>
+                <li><a href="#">NEWS 最新活动</a></li>
+                <li><a href="#">INFO 公司新闻</a></li>
+                <li><a href="#">FAQ 新娘问答</a></li>
+                <li><a href="#">BOOK 精彩留言</a></li>
+                <li><a href="#">WEIBO 官方微博</a></li>
+            </ul>
+        </div>
+        <div class="footCode">
+            <a href="#"><img src="images/main-img/code.png" alt=""/>关注喜来登微信</a>
+        </div>
+
+    </div>
+    <!--版权部分-->
+    <div class="copyRight">
+        <p>版权所有© 2004-2014 武汉喜满堂婚礼　鄂ICP备14010278号-1 ,　公司地址： 武昌中南路口中建三局新时代商务中心8楼（金马家居旁）</p>
+        <p>全国服务热线：400-008-5920　座机：027-87717539　客服电话：027-87863957 ,　技术支持：iLank</p>
+    </div>
+
+
+</div>
+
+
+
+<!--额外-->
+<div class="m" id="vedio" left="0" top="60">
+    <!--<video id="my-video" class="video-js" controls preload="auto" width="1180" height="666"-->
+    <span id="min">_</span>
+    <span id="max">□</span>
+    <span id="close">X</span>
+    <video id="my-video" class="video-js" controls preload  height="450"
+           poster="MY_VIDEO_POSTER.jpg" data-setup="{}">
+        <!--width="1349"-->
+        <source src="http://vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
+        <source src="http://vjs.zencdn.net/v/oceans.webm" type="video/webm">
+        <source src="http://vjs.zencdn.net/v/oceans.ogv" type="video/ogg">
+        <p class="vjs-no-js">
+            <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+        </p>
+    </video>
+</div>
+
+<script src="http://vjs.zencdn.net/5.18.4/video.min.js"></script>
+<script type="text/javascript">
+
+</script>
+
+
+</body>
+</html>

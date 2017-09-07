@@ -1,0 +1,614 @@
+/**
+* @author :mzn
+*/
+/*首页上部分版心*/
+.main-top-w{
+    width: 1180px;
+    margin: 0 auto;
+}
+/*头部-header*/
+/*顶部轮播图*/
+.header .header-slider{
+    width: 1180px;
+    height: 523px;
+    margin: 0 auto;
+    position: relative;
+
+}
+.header-slider ul{
+    position: relative;
+    width: 100%;
+
+}
+.header-slider li{
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: none;
+}
+.header-slider li:first-child{
+    /*第一个li透明度为1，其他为0*/
+    display: block;
+}
+.header-slider li img{
+    width: 1180px;
+    height: 523px;
+}
+    /*小圆点*/
+.header-slider .header-slider-crilelist{
+    position: absolute;
+    left: 50%;
+    margin-left: -30px;
+    bottom: 30px;
+}
+.header-slider .header-slider-crilelist i{
+    float: left;
+    width: 20px;
+    height: 21px;
+    cursor: pointer;
+    background: url("../images/main-img/syq-slide-bottom.png")0 0 no-repeat;
+}
+.header-slider-crilelist i.current{
+    background-position: -22px 0;
+}
+/*头部菜单*/
+.header .header-nav{
+    width: 100%;
+    height: 60px;
+    background-color: #EC82B7;
+
+}
+.header .header-nav .header-nav-w{
+    width: 1180px;
+    margin: 0 auto;
+}
+   /*登录部分---logo*/
+.header .header-nav .header-login{
+    width: 207px;
+    height: 60px;
+    background: url("../images/main-img/syq-logo.png")0 0 no-repeat;
+    text-indent: -9999px;
+    overflow: hidden;
+    float: left;
+    margin: 9px 30px 0 0;
+}
+.header .header-nav .header-login:hover{
+    background-position: -215px 0;
+}
+  /*菜单列表部分*/
+.header-nav-list ul li{
+    float: left;
+}
+.header-nav-list ul li a{
+    color: #ffffff;
+    width: 116px;
+    height: 60px;
+    text-align: center;
+    display: block;
+}
+.header-nav-list li span{
+    font: normal 16px Microsoft Yahei,Verdana,宋体,sans-serif;
+    display: block;
+    padding: 11px 0  5px;
+    position: relative;
+}
+.header-nav-list li i{
+    font: italic normal 12px Georgia, "Times New Roman", Times, serif;
+    display: block;
+    position: relative;
+}
+    /*li----鼠标移入时候的样式*/
+.header-nav-list ul li a.current{
+    background-color: #CC6699;
+}
+.header-nav-list ul li a:hover{
+    background-color: #CC6699;
+}
+.header-nav-list li i.current{
+    color: #ff0;
+}
+/*头部-header----end*/
+
+/*最新活动--activity*/
+   /*最新活动---标题部分、最新案例---标题部分*/
+.activity,.case{
+    padding-top: 50px;
+}
+.activity .activity-head,.case .case-head{
+    height: 110px;
+    border-top: 1px solid #FF99CC;
+    padding-bottom: 30px;
+    position: relative;
+    margin-top: 18px;
+}
+      /*文字*/
+.activity-head p span:first-child,.case-head p span:first-child{
+    text-align: center;
+    font-size:14px;
+    color: #999;
+    display: block;
+    margin: 16px 0 5px 0;
+}
+.activity-head p span:last-child,.case-head p span:last-child{
+   font: normal normal 10px/1em "MS Serif", "New York", serif;
+    color:#bbb;
+    text-align: center;
+    display: block;
+}
+      /*标题*/
+.activity-head,.case-head{
+    text-align: center;
+}
+.activity-head  a,.case-head a{
+    display: inline-block;
+    height: 41px;
+    width: 334px;
+    border-left: 5px solid #FF99CC;
+    border-right: 5px solid #FF99CC;
+    background: #fff url("../images/main-img/syq-i8.png")0 -237px no-repeat;
+    margin-top: -50px;
+}
+.case-head  a{
+    background: #fff url("../images/main-img/syq-i8.png")0 0 no-repeat;
+}
+   /*最新活动---内容部分*/
+.activity-c{
+    background-color: rgba(0,0,0,.5);
+    height: 317px;
+    width: 100%;
+}
+.activity-content{
+    height: 317px;
+    width: 1050px;
+    margin: 0 auto;
+    position: relative;
+}
+.activity-content ul li{
+    position: absolute;
+    /*去除图片多出部分*/
+   overflow: hidden;
+}
+.activity-content li span{
+    opacity:0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/*最新活动--activity---end*/
+/*最新案例--case*/
+   /*内容部分*/
+     /*内容上半部分*/
+.case .case-content-top li{
+    width: 382px;
+    margin: 0 11px 30px 0;
+    float: left;
+    position: relative;
+}
+.case-content .case-content-top .case-content-descri{
+    height: 73px;
+    width: 382px;
+    padding-left: 8px;
+}
+.case-content-top .case-content-descri span{
+    display: block;
+    line-height: 20px;
+    color: #666666;
+}
+.case-content-top .case-content-descri span:first-child{
+    height: 33px;
+    line-height: 33px;
+    font-size: 18px;
+    border-bottom: 1px solid rgb(230, 230, 230);
+}
+      /*遮罩层*/
+  /*黑色幕布*/
+.case-content-top .case-c-imgMaskBack{
+    width: 382px;
+    height: 255px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #000;
+    opacity: 0;
+}
+   /*文字部分*/
+.case-content-top .case-c-imgMask{
+    opacity: 0;
+    width: 100%;
+    height: 185px;
+    padding-top: 70px;
+    text-align: center;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    color: #ffffff;
+    position: absolute;
+    left: 0;
+    bottom: 0px;
+}
+.case-c-imgMask i{
+    display: block;
+    padding-top: 40px;
+    margin: 0 auto;
+    width: 242px;
+    line-height: 12px;
+    background: url("../images/main-img/syq-case-mask.png") no-repeat;
+}
+.case-c-imgMask b{
+    font-size: 18px;
+    display: block;
+    padding-top: 18px;
+}
+   /*内容的下半部分*/
+.case-content .case-content-bottom{
+   padding-bottom: 30px;
+}
+.case-content-bottom li{
+    float: left;
+    width: 370px;
+    height: 321px;
+    margin-right: 23px;
+}
+.case-content-bottom li a{
+    display: block;
+    width: 370px;
+    height: 75px;
+    text-align: center;
+    color: #666;
+    padding-top: 229px;
+    background: url("../images/main-img/md01.png") 0 0 no-repeat;
+    position: relative;
+}
+.case-content-bottom li .c-c-b-a2{
+    background-position: -374px 0;
+}
+.case-content-bottom li .c-c-b-a3{
+    background-position: -748px 0;
+}
+.case-content-bottom li .c-c-b-a1:hover{
+    color: #FF99CC;
+}
+.case-content-bottom li .c-c-b-a2:hover{
+    color: #FF9900;
+}
+.case-content-bottom li .c-c-b-a3:hover{
+    color: #3CBADC;
+}
+  /*圆特效---css3--start*/
+.case-content-bottom i.canvas {
+    align-items: center;
+    background: #FF99CC;
+    border-radius: 50%;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    display: flex;
+    height: 54px;
+    justify-content: center;
+    margin: 1em 1em 2em 1em;
+    width: 54px;
+    position: absolute;
+    left: 50%;
+    margin-left: -27px;
+    top: 162px;
+}
+.case-content-bottom .c-c-b-a2>i{
+    background: #FF9900;
+}
+.case-content-bottom .c-c-b-a3>i{
+    background: #3CBADC;
+}
+.case-content-bottom i .spinner6 {
+    background: #ffffff;
+    border-radius: 50%;
+    height: 9px;
+    margin: .1em;
+    width: 9px;
+}
+
+.case-content-bottom i .p1 {
+    animation: fall 1s linear .3s infinite;
+}
+
+.case-content-bottom i .p2 {
+    animation: fall 1s linear .2s infinite;
+}
+
+.case-content-bottom i .p3 {
+    animation: fall 1s linear .1s infinite;
+}
+
+.case-content-bottom i .p4 {
+    animation: fall 1s linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-15px);
+    }
+    25%, 75% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-15px);
+    }
+}
+  /*圆特效---css3 ---end*/
+.case-content-bottom li span{
+    display: block;
+    font-size: 14px;
+    line-height: 25px;
+}
+/*最新案例--case---end*/
+
+/**
+*@author : fan
+*/
+/*婚礼视频开始*/
+.weddingVideo {
+    width: 1210px;
+    margin-top:30px;
+    border-top: 1px solid  hotpink;
+    height: 42px;
+    text-align: center;
+}
+
+.videoTop {
+    background: url("../images/main-img/i8.png") no-repeat 0px -110px;
+    height: 40px;
+    width: 320px;
+    display: inline-block;
+    border-right: 4px solid hotpink;
+    border-left: 4px solid hotpink;
+    margin-top: -20px;
+
+}
+.videoText p{
+    text-align: center;
+    color: #c0c0c0;
+    line-height: 20px;
+}
+.textOne{
+    text-align: center;
+    color: #999;
+    font-size: 16px;
+}
+.videoImg {
+    height: 520px;
+
+}
+.videoImg ul {
+    width: 936px;
+    margin: 0 auto;
+    position: relative;
+}
+.videoImg li {
+    width: 300px;
+    height: 250px;
+    overflow: hidden;
+    position: absolute;
+}
+/*给li单独设置定位*/
+.videoImg li:nth-child(1){
+    left: 0;
+    top: 0;
+}
+.videoImg li:nth-child(2){
+    left: 310px;
+    top: 0;
+}
+.videoImg li:nth-child(3){
+    left: 620px;
+    top: 0;
+}
+.videoImg li:nth-child(4){
+    left: 0;
+    top: 268px;
+}
+.videoImg li:nth-child(5){
+    left: 310px;
+    top: 268px;
+}
+.videoImg li:nth-child(6){
+    left: 620px;
+    top: 268px;
+}
+/*婚礼视频结束*/
+
+/*热门新闻开始*/
+.hotNew {
+    width: 1210px;
+    margin-top:60px;
+    border-top: 1px solid  hotpink;
+    height: 105px;
+    /*position: relative;*/
+   text-align: center;
+}
+.newTop {
+    background: url("../images/main-img/i8.png") no-repeat 0px -474px;
+    height: 106px;
+    width: 320px;
+    display: inline-block;
+    /*position: absolute;*/
+    /*left:405px;*/
+    /*top: -20px;*/
+    border-right: 4px solid hotpink;
+    border-left: 4px solid hotpink;
+    margin-top: -20px;
+}
+.newTop ul {
+    width: 190px;
+    height: 18px;
+    margin-top: 75px;
+    margin-left: 90px;
+}
+.newTop li {
+    margin-right: 25px;
+    float: left;
+    cursor: pointer;
+    font-size: 14px;
+    color: #ccc;
+}
+#list {
+    height: 550px;
+}
+#list ul {
+    width: 1180px;
+    margin: 0 auto;
+}
+#list li {
+    background: url("../images/main-img/liu.png") repeat-x;
+    width: 500px;
+    height: 100px;
+    overflow: hidden;
+    float: left;
+    margin-top: 50px;
+    margin-left: 50px;
+}
+#list .listTop {
+    margin-top: 20px;
+    position: absolute;
+    opacity: 1;
+}
+#list .listTop  p{
+    font-size: 18px;
+    color: #000;
+    display: block;
+    margin-bottom: 20px;
+}
+#list .listTop  i {
+    font-size: 14px;
+    color: #ccc;
+}
+.listTopHidden {
+    margin-left: 20px;
+    margin-top: 10px;
+    opacity: 0;
+
+}
+.listTopHidden a{
+    font-size: 14px;
+    color: hotpink;
+    line-height: 30px;
+
+}
+/*热门新闻结束*/
+
+/*合作单位开始*/
+.teamWork {
+    width: 1210px;
+    border-top: 1px solid hotpink;
+    margin: 0 auto;
+    height: 60px;
+    /*position: relative;*/
+    text-align: center;
+}
+.teamWork .teamTop {
+    background: url("../images/main-img/i8.png") no-repeat 0 -351px;
+    height: 40px;
+    width: 320px;
+    margin-top:-20px;
+    display: inline-block;
+    /*margin: 0 auto;*/
+    text-align: center;
+    border-right: 4px solid hotpink;
+    border-left: 4px solid hotpink;
+    /*position: absolute;*/
+    /*top:-20px;*/
+    /*left:405px;*/
+}
+.teamText{
+    text-align: center;
+    color: #c0c0c0;
+    line-height: 20px;
+}
+.teamText .teamTextTop {
+    text-align: center;
+    color: #999;
+    font-size: 16px;
+}
+.teamFriend {
+    width: 1250px;
+    margin: 0 auto;
+    padding-top: 50px;
+    overflow: hidden;
+}
+.teamFriend ul {
+    width: 1500px;
+    margin: 0 auto;
+}
+.teamFriend li {
+    float: left;
+}
+.teamEnd {
+    width: 402px;
+    height: 106px;
+    margin: 0 auto;
+    padding-top: 50px;
+
+}
+.endText {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.endText p {
+    text-align: center;
+    color: #c0c0c0;
+    line-height: 20px;
+
+}
+/*合作单位结束*/
+
+/*底部服务部分*/
+.footBoxBorder{
+    width: 100%;
+    border-top:10px solid hotpink;
+}
+.footBox {
+    width: 1180px;
+    margin: 0 auto;
+    height: 300px;
+}
+.footBox .foot-1 {
+    width: 200px;
+    float: left;
+    border-right: 1px solid #DDD;
+    margin-top: 50px;
+}
+.footBox span{
+    display: block;
+   margin-left: 150px;
+    margin-bottom: 20px;
+    font-weight: bolder;
+}
+
+.footBox li{
+    height: 32px;
+    line-height: 32px;
+    text-align: right;
+    padding-right: 20px;
+    width: 180px;
+}
+.footBox li a {
+    display: block;
+}
+.footBox .footCode {
+    text-align: center;
+    height: 124px;
+    width: 124px;
+    float: right;
+    margin-right: 100px;
+    margin-top: 80px;
+    font-size: 16px;
+}
+
+    /*底部服务部分结束*/
+.copyRight {
+    background: url("../images/main-img/liu.png") repeat-x;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    font-size: 14px;
+    line-height: 25px;
+}
+

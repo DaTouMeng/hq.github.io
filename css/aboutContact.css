@@ -1,0 +1,359 @@
+
+/*导航栏*/
+.nav {
+    width: 100%;
+    height: 60px;
+    background-color: #EC82B7;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+.w {
+    width: 1180px;
+}
+
+.logo {
+    width: 207px;
+    height: 60px;
+    float: left;
+    margin: 9px 30px 0 0;
+    background: url(../images/aboutContact-img/syq-logo.png) no-repeat;
+    cursor: pointer;
+}
+.logo:hover {
+    background-position: -216px 0;
+}
+
+.nav ul li {
+    float: left;
+    position: relative;
+}
+
+.dh a {
+    display: inline-block;
+    width: 116px;
+    height: 60px;
+    color: #fff;
+}
+.dh i {
+    position: relative;
+    font-weight: 700;
+    text-align: center;
+    font: 12px Microsoft Yahei,Verdana,宋体,sans-serif;
+    font-size: 16px;
+    display: block;
+    margin: 11px 0 5px;
+}
+.dh span {
+    position: relative;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-style: italic;
+    display: block;
+    /*margin-left: 35px;*/
+    text-align: center;
+}
+
+.contact {
+    background-color: #c69;
+}
+.contact span{
+    color: #ff0;
+}
+
+
+
+
+
+/*中间部分*/
+.zb{
+    width: 1170px;
+    height: 940px;
+    margin: 0 auto;
+    margin-top:40px;
+}
+.zb_l{
+    margin-top:82px;
+    width: 210px;
+    float: left;
+    background :url(../images/aboutContact-img/ico_8.jpg) no-repeat right 0;
+
+}
+
+.zb_l_t{
+    width: 210px;
+    height: 230px;
+    position: relative;
+    background: url(../images/aboutContact-img/i6.gif)no-repeat;
+}
+
+.zb_c{
+    color: #ec82b7;
+    float: left;
+    font-size: 36px;
+    text-align: center;
+    padding-left:25px;
+}
+.zb_c :hover{
+    color: red;
+}
+
+.zb_ul li{
+    float: right;
+    height: 30px;
+    margin-right: 32px;
+    line-height: 26px;
+    font-size: 12px;
+}
+.zb_ul li a {
+    color: #141414;
+    width: 180px;
+    text-align: right;
+    display: block;
+
+}
+.zb_ul li  :hover{
+    background-color: #666;
+    color: #fff;
+}
+
+.zb_lxtm{
+    width: 182px;
+    height: 28px;
+    background-color: #666;
+    color: #fff ;
+}
+
+
+
+.zb_hs{
+    height: 100%;
+    position: relative;
+}
+.zb_hs_ps{
+    border: 0;
+    width: 119px;
+    height: 16px;
+    color:#666666;
+    background:url(../images/aboutContact-img/search.gif) 0 0 no-repeat;
+    margin-top: 80px;
+
+}
+.btn{
+    position: absolute;
+    left: 122px;
+    top: 126px;
+    width: 47px;
+    height: 16px;
+}
+
+.zb_call{
+    font-size: 12px;
+    padding: 22px 20px 0 0;
+    text-align: right;
+    line-height: 25px;
+}
+.zb_call span{
+    padding-top: 13px;
+    font-size: 18px;
+    font-family: "黑体";
+}
+
+.zx_ser{
+    padding-top: 28px;
+}
+.qq {
+    width: 84px;
+    height: 80px;
+    float: right;
+    text-align: center;
+    padding-top: 10px;
+    margin-right: 20px;
+
+}
+.qq a{
+    padding-top: 33px;
+    width: 32px;
+    font: 600 12px/22px 'microsoft yahei';
+    color:#33A56C;
+}
+.qq a:hover{
+    color: pink;
+}
+.qq_l {
+    float: left;
+    background: url(../images/aboutContact-img/m.gif) no-repeat 0 0;
+}
+.qq_r  {
+    float: right;
+    background: url(../images/aboutContact-img/m.gif) no-repeat -32px 0;
+}
+
+
+.zb-fw {
+    height: 100px;
+    text-align: right;
+    margin-right: 20px;
+    padding-top: 5px;
+    float: right;
+    font-family: Georgia, "Times New Roman", Times, serif;
+}
+.zb-fw strong {
+    display: block;
+    margin-top: 5px;
+
+}
+
+.zb_lxwm{
+    margin-top:99px;
+    width: 930px;
+    float: right;
+}
+.zb_lxwm_1{
+    height: 30px;
+    border-bottom: 1px solid #DEDEDE;
+
+}
+ .us{
+    color: hotpink;
+    float: left;
+    height: 30px;
+    width: 80px;
+    border-bottom: 1px solid hotpink;
+}
+
+.zb_lx{
+    margin-top: 25px;
+}
+.ngbd,.telephone{
+    font-size: 16px;
+    font-family: "微软雅黑";
+}
+.phone{
+    float: left;
+    margin-left: 116px;
+    margin-top: 10px;
+}
+.telephone{
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+
+/* 地图*/
+.zb_dt{
+    width: 560px;
+    height: 360px;
+    background-color: pink;
+}
+
+/*中间底部图片和英文字*/
+.zb_b{
+    width: 1070px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: -150px;
+    margin-bottom: 70px;
+}
+.zb_b p {
+    margin-top: 30px;
+    font-size: 16px;
+    color: #bbb;
+}
+
+
+
+/*底部*/
+.footBoxBorder{
+    width: 100%;
+    border-top:10px solid hotpink;
+    position: relative;
+}
+.footBoxBorder a{
+    display:block;
+    width: 40px;
+    height: 20px;
+    float: right;
+    background: url("../images/aboutContact-img/syq-footer-top.png") no-repeat;
+    position: absolute;
+    top: -30px;
+    right:260px;
+}
+.footBox {
+    width: 1180px;
+    margin: 0 auto;
+    height: 300px;
+}
+.footBox .foot-1 {
+    width: 200px;
+    float: left;
+    border-right: 1px solid #DDD;
+    padding-left: 20px;
+    margin-top: 50px;
+}
+.footBox span{
+    display: block;
+    margin-bottom: 20px;
+    font-weight: bolder;
+}
+
+.footBox li{
+    height: 32px;
+    line-height: 32px;
+    text-align: right;
+    width: 180px;
+}
+.news{
+    position: relative;
+}
+.news_i{
+    width: 23px;
+    height: 13px;
+    background: url("../images/aboutContact-img/syq-news.gif");
+    position: absolute;
+}
+.footBox li a {
+    display: block;
+}
+.footBox li a:hover{
+    color: #fff;
+}
+.footBox li :hover{
+    background-color:hotpink ;
+}
+
+.footBox .footCode {
+    text-align: center;
+    height: 124px;
+    width: 124px;
+    float: right;
+    margin-right: 100px;
+    margin-top: 80px;
+    font-size: 16px;
+}
+
+
+/*底部地址*/
+.db_dz{
+    padding-top: 44px;
+    text-align: center;
+    padding-bottom: 30px;
+    background:url(../images/aboutContact-img/syq-bg.gif) ;
+}
+.db_dz_t{
+    padding-top: 10px;
+    line-height: 20px;
+    color: #000;
+}
+.db_dz_b{
+    line-height: 30px;
+    color: #000;
+}
+
+
+
+
+
+
+

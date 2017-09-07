@@ -1,0 +1,484 @@
+html,
+body,
+ul,
+li,
+ol,
+dl,
+dd,
+dt,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+form,
+fieldset,
+legend,
+img {
+    margin: 0;
+    padding: 0;
+}
+
+fieldset,
+img,
+input,
+button {
+    border: none;
+    padding: 0;
+    margin: 0;
+    /*在低版本的ie浏览器里面不支持*/
+    outline-style: none;
+}
+
+ul,
+ol {
+    /*去掉li前面的圆点或者序号*/
+    list-style: none;
+}
+
+input {
+    padding-top: 0;
+    padding-bottom: 0;
+    /*这个字体是根据项目的要求设置的不是固定的*/
+    font-family: "SimSun", "宋体";
+}
+
+select,
+input {
+    vertical-align: middle;
+}
+
+select,
+input,
+textarea {
+    font-size: 12px;
+    margin: 0;
+}
+/*禁止手动修改大小*/
+textarea {
+    resize: none;
+}
+/*去掉图片底部默认空白缝隙*/
+img {
+    border: 0;
+    vertical-align: middle;
+}
+/*合并外连线*/
+/*这个一般是没有的，因为在现在的页面中，表格几乎不用了*/
+table {
+    /*表格的单元格边框默认是不会重合的，这个属性可以让表格的边框重合在一起，看起来更加细一些*/
+    border-collapse: collapse;
+}
+
+body {
+    font: 12px/150% "Microsoft YaHei",tahoma,arial,"Hiragino Sans GB",\\5b8b\4f53,sans-serif; /*unitedCode的写法，宋体的写法*/
+    color: #666;
+    background: #fff;
+}
+/*清除浮动*/
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+a {
+    color: #666;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #C81623;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-decoration: none;
+    font-weight: normal;
+    font-size: 100%;
+}
+
+s,
+i,
+em {
+    font-style: normal;
+    text-decoration: none;
+}
+
+
+/*公共类*/
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.al {
+    text-align: left;
+}
+
+.ac {
+    text-align: center;
+}
+
+.ar {
+    text-align: right;
+}
+.pr {
+    position: relative;
+}
+.pa {
+    position: absolute;
+}
+
+.hide {
+    display: none;
+}
+
+
+
+.w{
+    width: 1180px;
+    margin: 0 auto;
+    /*height: 388px;*/
+    margin-top:60px;
+    overflow: hidden;
+    /*height: 1931px;*/
+}
+
+.title {
+    overflow: hidden;
+    /*包含塌陷？？？*/
+}
+
+
+.title h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-top: 65px;
+    color: #666666;
+    margin-bottom: 18px;
+}
+
+.title p {
+    color: rgb(68, 68, 68);
+    text-align: center;
+    margin-top: 18px;
+    margin-bottom: 18px;
+    font: 400 14px/24px 宋体;
+}
+
+.title p.en{
+    color: rgb(210, 193, 193);
+    text-align: center;
+    font: 400 12px/16px 宋体;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.top {
+    background: url("../images/vedio-img/i8_2.png") repeat-x 0 20px;
+    margin-top: 16px;
+}
+
+.top_title {
+    height: 105px;
+    width: 305px;
+    margin: 0 auto;
+    background: url("../images/vedio-img/i8.png") repeat-x 0 -120px;
+    border-left: 5px solid #ec82b7;
+    border-right: 5px solid #ec82b7;
+    position: relative;
+}
+
+
+.top_title a.vedio{
+     position: absolute;
+     top:60px;
+     left: 88px;
+     font-size: 18px;
+ }
+
+
+.top_title a.flim{
+    position: absolute;
+    top:60px;
+    left: 188px;
+    font-size: 18px;
+}
+
+
+.center_list ul li .fl{
+    /*float: left;*/
+    /*margin-right: 18px;*/
+    float: left;
+}
+
+.center_list ul li{
+    position: relative;
+    /*overflow: hidden;*/
+}
+
+
+
+.center_list ul li .fr{
+    float: right;
+}
+
+.center_list_top .mask{
+    position: absolute;
+    width: 580px;
+    height: 385px;
+    background-color: #000;
+    opacity: 0;
+}
+
+.center_list_top i {
+    position: absolute;
+    width: 178px;
+    height: 178px;
+    background-image: url("../images/vedio-img/play.png");
+    top: 100px;
+    left: -188px;
+}
+
+.center_list ul li.fr,.center_list ul li.fl{
+    overflow: hidden;
+}
+
+
+#center_list_center1_box1 {
+    height: 30px;
+    padding-top: 10px;
+}
+
+#center_list_center1 p{
+    margin: 0 0;
+}
+
+
+#center_list_center1_box2 {
+    height: 30px;
+    padding-top: 10px;
+}
+
+
+#center_list_center2 p ,#center_list_center3 p{
+    margin: 0 0;
+}
+
+.center_list_bottom{
+    border-top: 1px solid #E6E6E6;
+    height: 57px;
+}
+
+.center_list_bottom p{
+    margin: 0 0;
+    /*text-align: right;*/
+}
+
+#fansile {
+    text-align: right;
+}
+
+#zhendefansile {
+    text-align: right;
+}
+
+#center_list_center1_box3 ,#center_list_center1_box4,#center_list_center1_box5,#center_list_center1_box6{
+    height: 30px;
+    padding-top: 10px;
+}
+#exin {
+    text-align: right;
+}
+
+#center_list_center1_box4 p,#center_list_center1_box5 p,#center_list_center1_box6 p{
+    margin: 0 0;
+}
+#center_list_center4 p,#center_list_center5 p,#center_list_center6 p{
+    margin: 0 0;
+    text-align: right;
+}
+
+
+.center_list {
+    /*margin-top: 30px;*/
+    overflow: hidden;
+    /*margin-bottom: 36px;*/
+}
+
+.bottom {
+    height: 352px;
+    border-top: 1px solid #cccccc;
+    padding-top: 50px;
+}
+
+.bottom .img {
+    width: 402px;
+    height: 126px;
+    margin: 0 auto;
+    /*background-color: yellow;*/
+    background: url("../images/vedio-img/lf06.png") no-repeat ;
+    margin-bottom: 28px;
+}
+
+.bottom p {
+    text-align: center;
+    font-size: 12px;
+    line-height: 150%;
+    font-family: Arial, Verdana;
+    color: #bbbbbb;
+}
+
+
+
+.m{
+    width: 100%;
+    height: 450px;
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+    /*margin-top: 100px;*/
+    /*display: none;*/
+    position: fixed;
+    /*top: 60px;*/
+    /*left: 0px;*/
+    display: none;
+}
+
+#my-video {
+    width: 100%;
+    height: 360px;
+}
+
+#vedio #close {
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    font-size: 26px;
+    line-height: 36px;
+    text-align: center;
+    top: -4px;
+    right: -8px;
+    color: #fff;
+    z-index: 100;
+    /*要用层级显示出来*/
+}
+
+#vedio #min {
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    font-size: 26px;
+    line-height: 36px;
+    text-align: center;
+    top: -5px;
+    right: 50px;
+    color: #fff;
+    z-index: 100;
+}
+
+#vedio {
+    width: 100%;
+    height: 450px;
+}
+
+
+#max {
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    font-size: 26px;
+    line-height: 36px;
+    text-align: center;
+    top: -3px;
+    right: 20px;
+    color: #fff;
+    z-index: 100;
+}
+
+
+#sort  {
+    width: 100%;
+    height: 30px;
+    /*background-color: yellow;*/
+    font-size: 20px;
+    color: #000;
+}
+
+#default,#comprehensive,#newest{
+    font-size: 16px;
+    color: #000;
+}
+
+
+
+/*底部*/
+.footBoxBorder{
+    width: 100%;
+    border-top:10px solid hotpink;
+}
+.footBox {
+    width: 1180px;
+    margin: 0 auto;
+    height: 300px;
+}
+.footBox .foot-1 {
+    width: 200px;
+    float: left;
+    border-right: 1px solid #DDD;
+    margin-top: 50px;
+}
+.footBox span{
+    display: block;
+    margin-left: 150px;
+    margin-bottom: 20px;
+    font-weight: bolder;
+}
+
+.footBox li{
+    height: 32px;
+    line-height: 32px;
+    text-align: right;
+    padding-right: 20px;
+    width: 180px;
+}
+.footBox li a {
+    display: block;
+}
+.footBox .footCode {
+    text-align: center;
+    height: 124px;
+    width: 124px;
+    float: right;
+    margin-right: 100px;
+    margin-top: 80px;
+    font-size: 16px;
+}
+
+/*底部服务部分结束*/
+.copyRight {
+    background: url("../images/main-img/liu.png") repeat-x;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    font-size: 14px;
+    line-height: 25px;
+}
+
